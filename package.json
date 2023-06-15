@@ -1,0 +1,26 @@
+{
+  "name": "http.capybara",
+  "version": "1.0.0",
+  "description": "status http code using capybaras illustration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianaAmoriN/http.capybara.git"
+  },
+  "keywords": [
+    "npm",
+    "http",
+    "status",
+    "code",
+    "capybara"
+  ],
+  "author": "JulianaAmoriN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulianaAmoriN/http.capybara/issues"
+  },
+  "homepage": "https://github.com/JulianaAmoriN/http.capybara#readme"
+}
