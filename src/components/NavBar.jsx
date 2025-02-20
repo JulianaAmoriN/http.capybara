@@ -5,7 +5,7 @@ const styles = {
   appBar: {
     borderBottom: '1px solid',
     borderRadius: 10,
-    backgroundColor: '#cd8c52',
+    backgroundColor: '#ffffff',
   },
   toolbar: {
     flexWrap: 'wrap',

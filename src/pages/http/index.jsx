@@ -2,6 +2,8 @@ import React from 'react';
 import Copyright from '../../components/Copyright';
 import { Box, Container, Typography } from '@mui/material';
 import NavBar from '../../components/NavBar';
+import dados from '../../dados/dados';
+import StatusCodeList from '../../components/StatusCodeList';
 
 const introStyles = {
   title: {
@@ -29,14 +31,17 @@ function Http() {
     <Box>
       <NavBar />
       <Container sx={introStyles.container}>
-        <Typography sx={introStyles.title}>HTTP Capybara Code</Typography>
+        <Typography sx={introStyles.title}>HTTP Capybara</Typography>
         <Typography sx={introStyles.description}>
-          Em vez de navegar sozinho pelos códigos HTTPs, que tal ser guiado por capybaras?!
+            Em vez de navegar sozinho pelos status HTTP, que tal ser guiado por capybaras?!        
         </Typography>
+        <StatusCodeList data={dados} />
       </Container>
-      <p className='colorW'><Copyright /></p>
+      <p className='colorW'>
+        <Copyright />
+      </p>
     </Box>
   );
-};
+}
 
 export default Http;
