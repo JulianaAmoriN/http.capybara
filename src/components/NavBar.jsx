@@ -24,7 +24,7 @@ const NavBar = () => {
   return (
     <AppBar position="static" elevation={0} sx={styles.appBar}>
       <Toolbar sx={styles.toolbar}>
-        <img src="https://seu-usuario.github.io/http.capybara/logo192.png" alt="Logo" style={styles.logo} />
+        <img src="https://julianaamorin.github.io/http.capybara/logo192.png" alt="Logo" style={styles.logo} />
         <Typography variant="h5" noWrap sx={styles.title}>
           Capybara Dev
         </Typography>
