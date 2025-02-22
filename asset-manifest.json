@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/http.capybara/static/js/main.f0a511b8.js",
+    "main.js": "/http.capybara/static/js/main.f4ed7a7d.js",
     "static/js/453.d8e55dd7.chunk.js": "/http.capybara/static/js/453.d8e55dd7.chunk.js",
     "static/media/1SUp_CQCo1VAAeqgNgLd6itw3ltIRn-q_xZrtgMSRpc.webp": "/http.capybara/static/media/1SUp_CQCo1VAAeqgNgLd6itw3ltIRn-q_xZrtgMSRpc.9a89ec56ed444dca9a55.webp",
     "static/media/status200.webp": "/http.capybara/static/media/status200.048707d8cc2fac1ced6a.webp",
@@ -15,10 +15,10 @@
     "static/media/status201.webp": "/http.capybara/static/media/status201.b1aad95c2ccd9f95a312.webp",
     "static/media/status205.webp": "/http.capybara/static/media/status205.c8d50e95e4710688bdea.webp",
     "index.html": "/http.capybara/index.html",
-    "main.f0a511b8.js.map": "/http.capybara/static/js/main.f0a511b8.js.map",
+    "main.f4ed7a7d.js.map": "/http.capybara/static/js/main.f4ed7a7d.js.map",
     "453.d8e55dd7.chunk.js.map": "/http.capybara/static/js/453.d8e55dd7.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.f0a511b8.js"
+    "static/js/main.f4ed7a7d.js"
   ]
 }
