@@ -49,7 +49,7 @@ function StatusCodeList({ data }) {
           const imagePath = require(`../capy-imagens/${statusCode.imagem}.webp`);
 
           return (
-            <Grid2 item xs={12} sm={6} md={4} sx={introStyles.gridItem} key={statusCode.status}>
+            <Grid2 xs={12} sm={6} md={4} sx={introStyles.gridItem} key={statusCode.status}>
               <Card sx={introStyles.card}>
                 <CardMedia
                   component="img"

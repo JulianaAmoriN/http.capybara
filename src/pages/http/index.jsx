@@ -37,9 +37,9 @@ function Http() {
         </Typography>
         <StatusCodeList data={dados} />
       </Container>
-      <p className='colorW'>
+      <div className='colorW'>
         <Copyright />
-      </p>
+      </div>
     </Box>
   );
 }
