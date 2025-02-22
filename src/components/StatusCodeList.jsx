@@ -43,8 +43,8 @@ function StatusCodeList({ data }) {
   const [hoveredImage, setHoveredImage] = useState(null);
 
   return (
-    <Box sx={{ marginTop: '20px', padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '8px' }}>
-      <Grid2 container spacing={3}>
+    <Box sx={{ marginTop: '20px', padding: '20px', borderRadius: '8px' }}>
+      <Grid2 container spacing={3} justifyContent="center">
         {data.map((statusCode) => {
           const imagePath = require(`../capy-imagens/${statusCode.imagem}.webp`);
 
