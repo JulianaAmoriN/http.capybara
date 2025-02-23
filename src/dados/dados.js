@@ -42,9 +42,34 @@ const statusCodes = [
     },
     {
         "status": 205,
-        "legenda": "No Content",
+        "legenda": "Reset Content",
         "imagem": "status205"
     },
+    {
+        "status": 206,
+        "legenda": "Partial Content",
+        "imagem": "status206"
+    },
+    {
+        "status": 207,
+        "legenda": "Multi-Status",
+        "imagem": "status207"
+    },
+    {
+        "status": 208,
+        "legenda": "Already Reported",
+        "imagem": "status208"
+    },
+    {
+        "status": 226,
+        "legenda": "IM Used",
+        "imagem": "status226"
+    },
+    {
+        "status": 300,
+        "legenda": "Multiple Choices",
+        "imagem": "status300"
+    }
     // {
     //   "status": 301,
     //   "legenda": "Moved Permanently",
