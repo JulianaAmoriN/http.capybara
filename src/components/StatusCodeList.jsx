@@ -46,7 +46,7 @@ function StatusCodeList({ data }) {
     <Box sx={{ marginTop: '20px', padding: '20px', borderRadius: '8px' }}>
       <Grid2 container spacing={3} justifyContent="center">
         {data.map((statusCode) => {
-          const imagePath = require(`../capy-imagens/${statusCode.imagem}.webp`);
+          const imagePath = require(`../fakeDB/imagens/${statusCode.imagem}.webp`);
 
           return (
             <Grid2 xs={12} sm={6} md={4} sx={introStyles.gridItem} key={statusCode.status}>
