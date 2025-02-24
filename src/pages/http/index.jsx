@@ -2,7 +2,7 @@ import React from 'react';
 import Copyright from '../../components/Copyright';
 import { Box, Container, Typography } from '@mui/material';
 import NavBar from '../../components/NavBar';
-import dados from '../../dados/dados';
+import dados from '../../fakeDB/dados';
 import StatusCodeList from '../../components/StatusCodeList';
 
 const introStyles = {
