@@ -23,10 +23,10 @@ const introStyles = {
   },
   cardText: {
     position: 'absolute',
-    bottom: '0', // Mover para a parte inferior
+    bottom: '0',
     left: '0',
     width: '100%',
-    height: '20%', // 2/5 da altura
+    height: '20%',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     color: '#fff',
     display: 'flex',
@@ -35,7 +35,7 @@ const introStyles = {
     flexDirection: 'column',
     padding: '5px 10px',
     borderTop: '2px solid #fff',
-    zIndex: 1, // Garante que o texto fique acima da imagem
+    zIndex: 1,
   },
 };
 
@@ -57,15 +57,15 @@ function StatusCodeList({ data }) {
                   alt={statusCode.imagem}
                   sx={{
                     ...introStyles.cardMedia,
-                    filter: hoveredImage === statusCode.status ? 'none' : 'blur(2px)', // Aplica a nitidez apenas se a imagem for hover
+                    filter: hoveredImage === statusCode.status ? 'none' : 'blur(2px)',
                   }}
-                  onMouseEnter={() => setHoveredImage(statusCode.status)} // A imagem ficará nítida
-                  onMouseLeave={() => setHoveredImage(null)} // Retorna ao blur
+                  onMouseEnter={() => setHoveredImage(statusCode.status)}
+                  onMouseLeave={() => setHoveredImage(null)}
                 />
                 <CardContent
                   sx={introStyles.cardText}
-                  onMouseEnter={() => setHoveredImage(statusCode.status)} // O texto ficará nítido
-                  onMouseLeave={() => setHoveredImage(null)} // Retorna ao blur
+                  onMouseEnter={() => setHoveredImage(statusCode.status)}
+                  onMouseLeave={() => setHoveredImage(null)}
                 >
                   <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                     HTTP {statusCode.status}
