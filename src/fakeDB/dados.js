@@ -157,7 +157,7 @@ const statusCodes = [
     {
       "status": 411,
       "legenda": "Length Required",
-      "imagem": "status"
+      "imagem": "status411"
     },
     {
       "status": 412,
@@ -172,12 +172,12 @@ const statusCodes = [
     {
       "status": 414,
       "legenda": "URI Too Long",
-      "imagem": "status"
+      "imagem": "status414"
     },
     {
       "status": 415,
       "legenda": "Unsupported Media Type",
-      "imagem": "status"
+      "imagem": "status415"
     },
     {
       "status": 416,
@@ -262,17 +262,17 @@ const statusCodes = [
     {
       "status": 503,
       "legenda": "Service Unavailable",
-      "imagem": "status"
+      "imagem": "status503"
     },
     {
       "status": 504,
       "legenda": "Gateway Timeout",
-      "imagem": "status"
+      "imagem": "status504"
     },
     {
       "status": 505,
       "legenda": "HTTP Version Not Supported",
-      "imagem": "status"
+      "imagem": "status505"
     },
     {
       "status": 506,
