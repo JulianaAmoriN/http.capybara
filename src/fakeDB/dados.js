@@ -62,7 +62,7 @@ const statusCodes = [
     {
         "status": 226,
         "legenda": "IM Used",
-        "imagem": "status226"
+        "imagem": "status"
     },
     {
         "status": 300,
@@ -142,17 +142,17 @@ const statusCodes = [
     {
       "status": 408,
       "legenda": "Request Timeout",
-      "imagem": "status"
+      "imagem": "status408"
     },
     {
       "status": 409,
       "legenda": "Conflict",
-      "imagem": "status"
+      "imagem": "status409"
     },
     {
       "status": 410,
       "legenda": "Gone",
-      "imagem": "status"
+      "imagem": "status410"
     },
     {
       "status": 411,
@@ -167,7 +167,7 @@ const statusCodes = [
     {
       "status": 413,
       "legenda": "Content Too Large",
-      "imagem": "status"
+      "imagem": "status413"
     },
     {
       "status": 414,
@@ -232,7 +232,7 @@ const statusCodes = [
     {
       "status": 429,
       "legenda": "Too Many Requests",
-      "imagem": "status"
+      "imagem": "status429"
     },
     {
       "status": 431,
@@ -257,7 +257,7 @@ const statusCodes = [
     {
       "status": 502,
       "legenda": "Bad Gateway",
-      "imagem": "status"
+      "imagem": "status502"
     },
     {
       "status": 503,
@@ -277,27 +277,27 @@ const statusCodes = [
     {
       "status": 506,
       "legenda": "Variant Also Negotiates",
-      "imagem": "status"
+      "imagem": "status506"
     },
     {
       "status": 507,
       "legenda": "Insufficient Storage",
-      "imagem": "status"
+      "imagem": "status507"
     },
     {
       "status": 508,
       "legenda": "Loop Detected",
-      "imagem": "status"
+      "imagem": "status508"
     },
     {
       "status": 510,
       "legenda": "Not Extended",
-      "imagem": "status"
+      "imagem": "status510"
     },
     {
       "status": 511,
       "legenda": "Network Authentication Required",
-      "imagem": "status"
+      "imagem": "status511"
     }
   ];
   
