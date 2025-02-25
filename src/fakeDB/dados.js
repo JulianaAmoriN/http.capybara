@@ -137,7 +137,7 @@ const statusCodes = [
     {
       "status": 407,
       "legenda": "Proxy Authentication Required",
-      "imagem": "status"
+      "imagem": "status407"
     },
     {
       "status": 408,
@@ -162,7 +162,7 @@ const statusCodes = [
     {
       "status": 412,
       "legenda": "Precondition Failed",
-      "imagem": "status"
+      "imagem": "status412"
     },
     {
       "status": 413,
@@ -182,27 +182,27 @@ const statusCodes = [
     {
       "status": 416,
       "legenda": "Range Not Satisfiable",
-      "imagem": "status"
+      "imagem": "status416"
     },
     {
       "status": 417,
       "legenda": "Expectation Failed",
-      "imagem": "status"
+      "imagem": "status417"
     },
     {
       "status": 418,
       "legenda": "I'm a teapot",
-      "imagem": "status"
+      "imagem": "status418"
     },
     {
       "status": 421,
       "legenda": "Misdirected Request",
-      "imagem": "status"
+      "imagem": "status421"
     },
     {
       "status": 422,
       "legenda": "Unprocessable Content",
-      "imagem": "status"
+      "imagem": "status422"
     },
     {
       "status": 423,
@@ -212,22 +212,22 @@ const statusCodes = [
     {
       "status": 424,
       "legenda": "Failed Dependency",
-      "imagem": "status"
+      "imagem": "status424"
     },
     {
       "status": 425,
       "legenda": "Too Early",
-      "imagem": "status"
+      "imagem": "status425"
     },
     {
       "status": 426,
       "legenda": "Upgrade Required",
-      "imagem": "status"
+      "imagem": "status426"
     },
     {
       "status": 428,
       "legenda": "Precondition Required",
-      "imagem": "status"
+      "imagem": "status428"
     },
     {
       "status": 429,
@@ -237,12 +237,12 @@ const statusCodes = [
     {
       "status": 431,
       "legenda": "Request Header Fields Too Large",
-      "imagem": "status"
+      "imagem": "status431"
     },
     {
       "status": 451,
       "legenda": "Unavailable For Legal Reasons",
-      "imagem": "status"
+      "imagem": "status451"
     },
     {
       "status": 500,
