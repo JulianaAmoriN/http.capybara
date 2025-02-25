@@ -102,37 +102,37 @@ const statusCodes = [
     {
       "status": 400,
       "legenda": "Bad Request",
-      "imagem": "status"
+      "imagem": "status400"
     },
     {
       "status": 401,
       "legenda": "Unauthorized",
-      "imagem": "status"
+      "imagem": "status401"
     },
     {
       "status": 402,
       "legenda": "Payment Required",
-      "imagem": "status"
+      "imagem": "status402"
     },
     {
       "status": 403,
       "legenda": "Forbidden",
-      "imagem": "status"
+      "imagem": "status403"
     },
     {
       "status": 404,
       "legenda": "Not Found",
-      "imagem": "status"
+      "imagem": "status404"
     },
     {
       "status": 405,
       "legenda": "Method Not Allowed",
-      "imagem": "status"
+      "imagem": "status405"
     },
     {
       "status": 406,
       "legenda": "Not Acceptable",
-      "imagem": "status"
+      "imagem": "status406"
     },
     {
       "status": 407,
