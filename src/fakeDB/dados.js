@@ -62,7 +62,7 @@ const statusCodes = [
     {
         "status": 226,
         "legenda": "IM Used",
-        "imagem": "status"
+        "imagem": "status226"
     },
     {
         "status": 300,
@@ -252,7 +252,7 @@ const statusCodes = [
     {
       "status": 501,
       "legenda": "Not Implemented",
-      "imagem": "status"
+      "imagem": "status501"
     },
     {
       "status": 502,
