@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Box, Grid2, Typography, Card, CardContent, CardMedia } from '@mui/material';
 
 const introStyles = {
@@ -19,7 +18,6 @@ const introStyles = {
   cardMedia: {
     height: '200px',
     objectFit: 'cover',
-    transition: 'filter 0.3s ease',
   },
   cardText: {
     position: 'absolute',
@@ -40,8 +38,6 @@ const introStyles = {
 };
 
 function StatusCodeList({ data }) {
-  const [hoveredImage, setHoveredImage] = useState(null);
-
   return (
     <Box sx={{ marginTop: '20px', padding: '20px', borderRadius: '8px' }}>
       <Grid2 container spacing={3} justifyContent="center">
@@ -57,15 +53,10 @@ function StatusCodeList({ data }) {
                   alt={statusCode.imagem}
                   sx={{
                     ...introStyles.cardMedia,
-                    filter: hoveredImage === statusCode.status ? 'none' : 'blur(2px)',
                   }}
-                  onMouseEnter={() => setHoveredImage(statusCode.status)}
-                  onMouseLeave={() => setHoveredImage(null)}
                 />
                 <CardContent
                   sx={introStyles.cardText}
-                  onMouseEnter={() => setHoveredImage(statusCode.status)}
-                  onMouseLeave={() => setHoveredImage(null)}
                 >
                   <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                     HTTP {statusCode.status}
