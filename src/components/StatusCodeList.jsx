@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Grid2, Card, CardContent, CardMedia, Typography } from '@mui/material';
-import StatusDetailPopup from './StatusDetailPopup'; // Importando o pop-up
+import StatusDetailPopup from './StatusDetailPopup';
 
 const introStyles = {
   gridItem: {
@@ -12,6 +12,7 @@ const introStyles = {
     maxWidth: '300px',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    cursor: 'pointer',
     '&:hover': {
       transform: 'scale(1.05)',
       boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
@@ -40,14 +41,14 @@ const introStyles = {
 };
 
 function StatusCodeList({ data }) {
-  const [selectedStatus, setSelectedStatus] = useState(null); // Estado para controlar o status selecionado
+  const [selectedStatus, setSelectedStatus] = useState(null);
 
   const handleCardClick = (statusCode) => {
-    setSelectedStatus(statusCode); // Altera o estado para abrir o pop-up com os dados do status
+    setSelectedStatus(statusCode);
   };
 
   const closePopup = () => {
-    setSelectedStatus(null); // Fecha o pop-up ao setar o estado como null
+    setSelectedStatus(null);
   };
 
   return (
@@ -77,7 +78,6 @@ function StatusCodeList({ data }) {
         })}
       </Grid2>
 
-      {/* Exibe o pop-up se um status for selecionado */}
       {selectedStatus && <StatusDetailPopup statusCode={selectedStatus} onClose={closePopup} />}
     </Box>
   );

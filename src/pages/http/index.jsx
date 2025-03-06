@@ -31,10 +31,11 @@ function Http() {
     <Box>
       <NavBar />
       <Container sx={introStyles.container}>
-        <Typography sx={introStyles.title}>HTTP Capybara</Typography>
+        <Typography sx={introStyles.title}>HTTP Status Capybara</Typography>
         <Typography sx={introStyles.description}>
             Em vez de navegar sozinho pelos status HTTP, que tal ser guiado por capybaras?!        
         </Typography>
+        <Typography variant="body2">Clique na imagem para ver a descrição do status.</Typography>
         <StatusCodeList data={dados} />
       </Container>
       <div className='colorW'>
