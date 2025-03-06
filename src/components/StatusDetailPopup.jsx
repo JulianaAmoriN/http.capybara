@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Card, CardContent, Typography, IconButton } from '@mui/material';
-import XIcon from '@mui/icons-material/X';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 const popupStyles = {
   overlay: {
@@ -52,7 +52,7 @@ const StatusDetailPopup = ({ statusCode, onClose }) => {
           onClick={onClose}
           aria-label="close"
         >
-          <XIcon />
+          <HighlightOffIcon />
         </IconButton>
         <CardContent>
           <Typography variant="h5" sx={{ fontWeight: 'bold' }}>

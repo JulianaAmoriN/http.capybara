@@ -3,27 +3,27 @@ const statusCodes = [
     "status": 100,
     "legenda": "Continue",
     "imagem": "status100",
-    "descricao": "Indica que até o momento tudo está OK e que o cliente pode continuar com a requisição ou ignorar caso já tenha terminado. Para ter uma verificação pelo servidor o cliente deve enviar o header Expect: 100-continue na requisição inicial e receber o status 100 Continue antes de enviar o body da requisição.",
+    "descricao": "Indica que até o momento tudo está OK e que o cliente pode continuar com a requisição ou ignorar caso já tenha terminado.",
+    "adicional": "Para ter uma verificação pelo servidor o cliente deve enviar o header Expect: 100-continue na requisição inicial e receber o status 100 Continue antes de enviar o body da requisição.",
   },
   {
     "status": 101,
     "legenda": "Switching Protocols",
     "imagem": "status101",
-    "descricao": " indica para qual protocolo o servidor está trocando, conforme solicitado por um cliente que tenha enviado uma mensagem incluindo Upgrade no cabeçalho da requisição. O servidor inclui Upgrade no seu cabeçalho de resposta para indicar para qual protocolo o cliente foi redirecionado.",
+    "descricao": "Indica para qual protocolo o servidor está trocando, conforme solicitado por um cliente que tenha enviado uma mensagem incluindo Upgrade no cabeçalho da requisição. O servidor inclui Upgrade no seu cabeçalho de resposta para indicar para qual protocolo o cliente foi redirecionado.",
     "adicional": "Presume-se que o servidor só concordará em alternar protocolos quando for vantajoso fazê-lo. Por exemplo, mudar para uma versão mais recente de HTTP pode ser vantajoso em relação às versões mais antigas, e mudar para um protocolo síncrono em tempo real pode ser vantajoso ao fornecer recursos que usam tais recursos.",
   },
   {
     "status": 103,
     "legenda": "Early Hints",
     "imagem": "status103",
-    "descricao": "É destinado principalmente a ser usado com o cabeçalho Link para permitir ao agente do usuário começar pré-carregamento de recursos enquanto o servidor ainda está preparando uma resposta.",
-    "adicional": "O servidor pode enviar cabeçalhos para o navegador enquanto prepara a resposta final.",
+    "descricao": "É destinado principalmente a ser usado com o cabeçalho link para permitir ao agente do usuário começar pré-carregamento de recursos enquanto o servidor ainda está preparando uma resposta.",
   },
   {
     "status": 200,
     "legenda": "OK",
     "imagem": "status200",
-    "descricao": "A resposta de status de sucesso que indica que a requisição foi bem sucedida. Uma resposta 200 é cacheável por padrão.",
+    "descricao": "Indica que a requisição foi bem sucedida. Uma resposta 200 é cacheável por padrão.",
     "adicional": "O resultado de sucesso de um PUT ou DELETE geralmente não são 200 OK, e sim 204 No Content (ou 201 Created quando o recurso é carregado pela primeira vez). O significado de sucesso depende do método de requisição HTTP: GET (recurso foi carregado e transmitido no corpo da mensagem), HEAD (cabeçalhos da entidade estão no corpo da mensagem), POST (recurso descrevendo o resultado da ação está no corpo da mensagem), TRACE (corpo da mensagem contém a mensagem da requisição tal qual foi recebida pelo servidor).",
   },
   {
@@ -70,7 +70,7 @@ const statusCodes = [
     "status": 207,
     "legenda": "Multi-Status",
     "imagem": "status207",
-    "descricao": "Indica uma mistura de respostas. Esta resposta é usada exclusivamente no contexto da Web Distributed Authoring e Versioning (WebDAV). O corpo de resposta é a text/xmlou a application/xmlentidade HTTP com a multistatuselemento raiz que lista códigos de resposta individuais.",
+    "descricao": "Indica uma mistura de respostas. Esta resposta é usada exclusivamente no contexto da Web Distributed Authoring e Versioning (WebDAV). O corpo de resposta é a text/xml ou application/xml.",
     "adicional": "Os navegadores que acessam páginas da web nunca encontrarão esse código de status. A capacidade de retornar uma coleção de recursos faz parte do protocolo WebDAV e só é encontrada por aplicativos da Web que acessam um servidor WebDAV.",
   },
   {
@@ -90,57 +90,54 @@ const statusCodes = [
     "status": 300,
     "legenda": "Multiple Choices",
     "imagem": "status300",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que a requisição tem uma ou mais possíveis respostas. O agente de usuário ou o usuário devem escolher uma delas. Como não há forma padrão de se escolher uma das respostas, esse código de resposta é raramente usado.",
   },
   {
     "status": 301,
     "legenda": "Moved Permanently",
     "imagem": "status301",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o recurso requisitado foi movido permanentemente para a URL informada no Location header.",
+    "adicional": "É recomendado que se use o código 301 somente como resposta para os métodos GET ou Head e use 308 Permanent Redirect para POST, para proibir explicitamente o uso do método com esse status."
   },
   {
     "status": 302,
     "legenda": "Found",
     "imagem": "status302",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o recurso foi temporariamente movido para a URL informada no Location header. Os navegadores redirecionam para essa página porém os motores de busca não atualizam o link inicial.",
+    "adicional": "É recomendado habilitar o código 302 somente em resposta aos métodos GET ou HEAD e utilizar o método 307 Temporary Redirect em outros casos, já que a troca de método é expressamente proibida nesse caso. Em casos onde você deseja que o método utilizado altere para GET, utilize 303 See Other. Isto é útil quando você deseja dar uma resposta a um método PUT que não seja um recurso, mas uma mensagem de confirmação, como por exemplo: 'você enviou XYZ com sucesso'."
   },
   {
     "status": 303,
     "legenda": "See Other",
     "imagem": "status303",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o navegador deve ser redirecionado para o URL do Location header em vez de renderizar o recurso solicitado. Este código de resposta normalmente é retornado como resultado de um PUT ou POST. O método usado para mostrar esta página redirecionada é sempre GET.",
   },
   {
     "status": 304,
     "legenda": "Not Modified",
     "imagem": "status304",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que não há necessidade de retransmitir a requisição de recursos. É um redirecionamento implícito para o recurso em cache. Isto ocorre quando o método de requisição é safe, assim como uma requisição GET ou HEAD, ou quando a requisição é condicional e usa um cabeçalho If-None-Match ou If-Modified-Since. A resposta equivalente 200 OK teria incluso os cabeçalhos Cache-Control, Content-Location, Date, ETag, Expires, e Vary.",
   },
   {
     "status": 307,
     "legenda": "Temporary Redirect",
     "imagem": "status307",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o recurso da requisição foi temporariamente alterado para a URL informada no Location header. O método e o corpo da requisição original são reutilizados para realizar a requisição de redirecionamento. Em casos onde você deseja que o método utilizado seja alterado para GET, utilize o código de estado 303 See Other. Isto é util quando você deseja dar uma resposta a um método PUT que não seja o recurso enviado, mas uma mensagem de confirmação (como por exemplo 'Envio de XYZ concluído com sucesso').",
+    "adicional": "A única diferença entre 307 e 302 é que o 307 garante que o método e o corpo não são alterados quando o redirecionamento é feito. Com o 302, alguns clientes antigos alteram o método de solicitação de POST para GET.",
   },
   {
     "status": 308,
     "legenda": "Permanent Redirect",
     "imagem": "status308",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o recurso solicitado foi movido permanentemente para o URL dado pelo Location header. Este código de status é semelhante a 301 Moved Permanently, exceto que não permite alterar o método de solicitação de POST para GET.",
+    "adicional": "Algumas aplicações Web podem usar o 308 Permanent Redirect de forma não convencional e para outros propósitos. Por exemplo, Google Drive usa a resposta 308 Resume Incomplete para indicar ao cliente quando um upload incompleto parou."
   },
   {
     "status": 400,
     "legenda": "Bad Request",
     "imagem": "status400",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor não pode ou não irá processar a requisição devido a alguma coisa que foi entendida como um erro do cliente (por exemplo, sintaxe de requisição mal formada, enquadramento de mensagem de requisição inválida ou requisição de roteamento enganosa).",
+    "adicional": "Aviso: O cliente não deve repetir essa requisição sem modificá-la."
   },
   {
     "status": 401,
@@ -356,7 +353,7 @@ const statusCodes = [
     "legenda": "Bad Gateway",
     "imagem": "status502",
     "descricao": "Retornado pelo servidor indica que ele, enquanto atuando como um servidor intermediário (gateway ou proxy), recebeu uma resposta inválida do servidor para o qual a requisição foi encaminhada (upstream server).",
-    "adicional": "Um Gateway pode se referir a coisas diferentes na rede e um erro 502 geralmente não é algo que você possa corrigir, mas requer uma correção por parte do servidor web ou dos proxies através dos quais você está tentando obter acesso.",
+    "adicional": "Um erro 502 geralmente não é algo que você possa corrigir, mas requer uma correção por parte do servidor web ou dos proxies através dos quais você está tentando obter acesso.",
   },
   {
     "status": 503,
@@ -381,13 +378,13 @@ const statusCodes = [
     "status": 506,
     "legenda": "Variant Also Negotiates",
     "imagem": "status506",
-    "descricao": "Pode ser dado no contexto de Negociação de Conteúdo Transparente (Transparent Content Negotiation) (veja RFC 2295). Esse protocolo permite ao cliente requerer a melhor variante de um dado recurso, onde um servidor fornece múltiplos variantes. O código de status Variant Also Negotiates indica um erro na configuração interna do servidor na qual a variante escolhida é em si configurada para entrar em uma negociação de conteúdo, então não é um endpoint de negociação apropriado.",
+    "descricao": "Pode ser dado no contexto de Negociação de Conteúdo Transparente (Transparent Content Negotiation). Esse protocolo permite ao cliente requerer a melhor variante de um dado recurso, onde um servidor fornece múltiplos variantes. O código de status Variant Also Negotiates indica um erro na configuração interna do servidor na qual a variante escolhida é em si configurada para entrar em uma negociação de conteúdo, então não é um endpoint de negociação apropriado.",
   },
   {
     "status": 507,
     "legenda": "Insufficient Storage",
     "imagem": "status507",
-    "descricao": "Pode ser usado no contexto do protocolo Web Distributed Authoring and Versioning (WebDAV) (veja RFC 4918). Isso indica que o método não pode ser executado porque o servidor não pode salvar a representação necessária para completar a requisição com sucesso.",
+    "descricao": "Pode ser usado no contexto do protocolo Web Distributed Authoring and Versioning (WebDAV). Isso indica que o método não pode ser executado porque o servidor não pode salvar a representação necessária para completar a requisição com sucesso.",
     "adicional": "Esta condição é considerada temporária. Se a solicitação que recebeu este código de status foi o resultado de uma ação do usuário, a solicitação não deve ser repetida até que seja solicitada por uma ação do usuário separada.",
   },
   {
@@ -400,7 +397,7 @@ const statusCodes = [
     "status": 510,
     "legenda": "Not Extended",
     "imagem": "status510",
-    "descricao": "É enviado no contexto do HTTP Extension Framework, definido na RFC 2774. Na especificação, um cliente pode mandar uma requisição que contenha uma declaração de extensão, que descreve a extensão a ser utilizada. Se o servidor aceitar tal requisição, mas quaisquer extensões descritas na requisição não forem suportadas, o servidor então retorna uma resposta com o código de status 510. A requisição requer extensões adicionais para ser processada corretamente.",
+    "descricao": "É enviado no contexto do HTTP Extension Framework. Na especificação, um cliente pode mandar uma requisição que contenha uma declaração de extensão, que descreve a extensão a ser utilizada. Se o servidor aceitar tal requisição, mas quaisquer extensões descritas na requisição não forem suportadas, o servidor então retorna uma resposta com o código de status 510. A requisição requer extensões adicionais para ser processada corretamente.",
   },
   {
     "status": 511,
