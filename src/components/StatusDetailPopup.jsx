@@ -83,11 +83,9 @@ const StatusDetailPopup = ({ statusCode, onClose }) => {
         />
         <CardContent sx={popupStyles.sources}>
           <Typography variant="body2">
-            Fonte:
-            <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status" target="_blank" rel="noopener noreferrer">
+            Fonte: <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status" target="_blank" rel="noopener noreferrer">
                 MDN Web Docs
-            </a> e
-            <a href="https://www.httpstatus.com.br/" target="_blank" rel="noopener noreferrer">
+            </a> e <a href="https://www.httpstatus.com.br/" target="_blank" rel="noopener noreferrer">
                 HTTPStatus.com.br
             </a>
           </Typography>

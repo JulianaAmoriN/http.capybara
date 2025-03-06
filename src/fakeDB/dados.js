@@ -130,210 +130,200 @@ const statusCodes = [
     "legenda": "Permanent Redirect",
     "imagem": "status308",
     "descricao": "Indica que o recurso solicitado foi movido permanentemente para o URL dado pelo Location header. Este código de status é semelhante a 301 Moved Permanently, exceto que não permite alterar o método de solicitação de POST para GET.",
-    "adicional": "Algumas aplicações Web podem usar o 308 Permanent Redirect de forma não convencional e para outros propósitos. Por exemplo, Google Drive usa a resposta 308 Resume Incomplete para indicar ao cliente quando um upload incompleto parou."
+    "adicional": "Algumas aplicações Web podem usar o 308 Permanent Redirect de forma não convencional e para outros propósitos. Por exemplo, Google Drive usa a resposta 308 Resume Incomplete para indicar ao cliente quando um upload incompleto parou.",
   },
   {
     "status": 400,
     "legenda": "Bad Request",
     "imagem": "status400",
     "descricao": "Indica que o servidor não pode ou não irá processar a requisição devido a alguma coisa que foi entendida como um erro do cliente (por exemplo, sintaxe de requisição mal formada, enquadramento de mensagem de requisição inválida ou requisição de roteamento enganosa).",
-    "adicional": "Aviso: O cliente não deve repetir essa requisição sem modificá-la."
+    "adicional": "Aviso: O cliente não deve repetir essa requisição sem modificá-la.",
   },
   {
     "status": 401,
     "legenda": "Unauthorized",
     "imagem": "status401",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que a solicitação não foi aplicada porque não possui credenciais de autenticação válidas para o recurso de destino. Esse status é enviado com um cabeçalho WWW-Authenticate que contém informações sobre como autorizar corretamente.",
+    "adicional": "É semelhante a 403, mas neste caso, a autenticação é possível.",
   },
   {
     "status": 402,
     "legenda": "Payment Required",
     "imagem": "status402",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "É um termo despadronizado para respostas de Status, podendo-se ter usos futuros. Às vezes, este comando indica que o processo não pôde ser realizado em função de um pagamento não realizado. Originalmente, foi criado para validar uma micro ou grande transação e pode indicar que o método não se realiza até que o cliente efetue o pagamento. Contudo, não existem usos convecionais fixos e sua inserção varia, dependendo do contexto que é posto.",
+    "adicional": "Esta é uma tecnologia experimental, verifique a tabela de compatibilidade entre navegadores cuidadosamente antes de usar essa funcionalidade em produção."
   },
   {
     "status": 403,
     "legenda": "Forbidden",
     "imagem": "status403",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor entendeu o pedido, mas se recusa a autorizá-lo. Esse status é semelhante ao 401 , mas neste caso, a re-autenticação não fará diferença. O acesso é permanentemente proibido e vinculado à lógica da aplicação (como uma senha incorreta).",
+    "adicional": "Um servidor de origem que deseja 'ocultar' a existência atual de um recurso de destino proibido PODE responder com um código de status 404 Not Found.",
   },
   {
     "status": 404,
     "legenda": "Not Found",
     "imagem": "status404",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor não conseguiu encontrar o recurso solicitado. Normalmente, links que levam para uma página 404 estão quebrados ou desativados (link rot). Um código 404 não indica se o recurso está indisponível temporariamente ou se o recurso foi permanentemente removido. Mas, se esse for o caso, o ideal é utilizar o código 410 (Gone).",
   },
   {
     "status": 405,
     "legenda": "Method Not Allowed",
     "imagem": "status405",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o verbo HTTP utilizado não é suportado, por exemplo: a requisição ocorre por meio de um get, porém o único método disponível é o post.Curiosidade: Existem um método chamado OPTIONS que retorna todos os verbos suportados naquela requisiçãoobs: ele também pode não ser permitido.",
   },
   {
     "status": 406,
     "legenda": "Not Acceptable",
     "imagem": "status406",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "indica que o servidor não pode produzir uma resposta que combine com a lista de valores aceitáveis definidas nos cabeçalhos de negociação de conteúdo da requisição proativa, e o servidor é incapaz de produzir uma representação padrão. Negociação de conteúdo proativa incluem: Accept, Accept-Charset, Accept-Encoding, Accept-Language.",
+    "adicional": "Na prática, esse erro é raramente usado. Ao invés de responder usando esse código de erro, o que poderia ser enigmático ao usuário final e difícil de arrumar, servidores ignoram o cabeçalho e servem a página atual ao usuário. Se assume que mesmo que o usuário não fique completamente feliz, ele irá preferir isso ao invés do código de erro. Se o servidor retornar este status de erro, o corpo da mensagem deve conter a a lista disponíveis de representações do recurso, possibilitando ao usuário escolher entre elas.",
   },
   {
     "status": 407,
     "legenda": "Proxy Authentication Required",
     "imagem": "status407",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica um erro do lado cliente, informando que uma solicitação não está sendo bem aplicada. Isso ocorre porque falta a validar as credencias de autenticação para um proxy server que intermedia o navegador e o servidor que pode acessar o recurso solicitado. Este erro é enviado com um cabeçalho Proxy-Authenticate que contém informações de como fazer uma autorização correta.",
   },
   {
     "status": 408,
     "legenda": "Request Timeout",
     "imagem": "status408",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Significa que o servidor irá encerrar essa conexão em desuso. É enviado a uma conexão parada por alguns servidores, mesmo sem nenhuma requisição feita anteriormente pelo cliente. O servidor deve enviar no cabeçalho de resposta 'close' Connection já que 408 implica que o servidor decidiu encerrar a conexão ao invés de continuar aguardando.",
   },
   {
     "status": 409,
     "legenda": "Conflict",
     "imagem": "status409",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que a solicitação atual conflitou com o recurso que está no servidor. Conflitos são mais frequentes quando usado o método PUT. Por exemplo, você pode receber uma resposta 409 quando fizer upload de um arquivo que é mais antigo do que já existe no servidor, resultando em conflito de versão.",
+    "adicional": "O servidor deve gerar um payload que inclua informações suficientes para que um usuário reconheça a origem do conflito.",
   },
   {
     "status": 410,
     "legenda": "Gone",
     "imagem": "status410",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o acesso ao recurso não está mais disponível no servidor de origem, e que esta condição tende a ser permanente. Se você não sabe se a ausência do recurso é temporária ou permanente, o código de status 404 deverá ser utilizado.",
+    "adicional": "Uma resposta 410 response é armazenada em cache por default.",
   },
   {
     "status": 411,
     "legenda": "Length Required",
     "imagem": "status411",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor se nega a aceitar a requisição sem um cabeçalho Content-Length definido.",
+    "adicional": "Quando são enviados dados em uma série de blocos, o cabeçalho Content-Length é omitido e no início de cada bloco você precisa adicionar o tamanho do bloco corrente no formato hexadecimal.",
   },
   {
     "status": 412,
     "legenda": "Precondition Failed",
     "imagem": "status412",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o acesso ao recurso especificado foi negado. Isso acontece com requisições condicionais em métodos que não são GET ou HEAD quando a condição definida pelo cabeçalho If-Unmodified-Since ou If-None-Match não é satisfeita. Nesse caso, a requisição, geralmente um upload ou modificação de um recurso, não pode ser feita e o código de error de resposta é enviado de volta.",
   },
   {
     "status": 413,
     "legenda": "Content Too Large",
     "imagem": "status413",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que a carga da requisição é mais larga que os limites estabelecidos pelo servidor; o servidor pode encerrar a conexão ou retornar Retry-After no campo de cabeçalho.",
   },
   {
     "status": 414,
     "legenda": "URI Too Long",
     "imagem": "status414",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o tamanho da URI requisitada pelo cliente é maior do que o tamanho que o servidor aceita interpretar.",
+    "adicional": "Esta condição rara só é provável de ocorrer quando um cliente converteu indevidamente uma solicitação POST em uma solicitação GET com informações de consulta longas, quando o cliente caiu em um 'buraco negro' de redirecionamento (por exemplo, um prefixo URI redirecionado que aponta para um seu próprio sufixo) ou quando o servidor está sendo atacado por um cliente que tenta explorar brechas de segurança em potencial.",
   },
   {
     "status": 415,
     "legenda": "Unsupported Media Type",
     "imagem": "status415",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor se recusou a aceitar a requisição porque o formato do payload não é um formato suportado. O problema do formato pode ter ocorrido pelos valores indicados no Content-Type ou Content-Encoding, ou pelo resultado da inspeção do dado em si.",
   },
   {
     "status": 416,
     "legenda": "Range Not Satisfiable",
     "imagem": "status416",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor não pode servir as sequências solicitadas. A razão mais provável é que o documento não contenha tais sequências, ou que o valor do cabeçalho Range, apesar de sintaticamente correto, não faça sentido. A mensagem de resposta 416 contém um cabeçalho Content-Range indicando uma sequência insatisfatória (que é um '*') seguido por uma '/' e o tamanho atual do recurso. E.g. Content-Range: bytes */12777.",
+    "adicional": "Observando este erro, os navegadores geralmente, ou abortam a operação (por exemplo, o download será considerado não recuperável) ou requisitar o documento inteiro novamente.",
   },
   {
     "status": 417,
     "legenda": "Expectation Failed",
     "imagem": "status417",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que a expectativa enviada no cabeçalho da requisição Expect não foi suprida.",
   },
   {
     "status": 418,
     "legenda": "I'm a teapot",
     "imagem": "status418",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor se recusa a preparar café por ser um bule de chá. Este erro é uma referência ao Hyper Text Coffee Pot Control Protocol, que foi uma piada de 1º de abril de 1998. Não é um código de status oficial e não está definido na RFC então não deveria ser usado em produção.",
+    "adicional": "Não sendo uma especificação séria, várias bibliotecas e frameworks implementaram essa especificação como forma de continuar a piada. Alguns sites usam esta resposta para solicitações que não querem tratar, como consultas automatizadas.",
   },
   {
     "status": 421,
     "legenda": "Misdirected Request",
     "imagem": "status421",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que a solicitação foi direcionada para um servidor que não é capaz de produzir uma resposta. Isso pode ser enviado por um servidor que não está configurado para produzir respostas para a combinação de esquema e autoridade que estão incluídas no URI de solicitação. Os clientes podem tentar novamente a solicitação por uma conexão diferente.",
+    "adicional": "Este código de status não deve ser gerado por proxies.",
   },
   {
     "status": 422,
     "legenda": "Unprocessable Content",
     "imagem": "status422",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor entende o tipo de conteúdo da entidade da requisição, e a sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.",
+    "adicional": "Por exemplo, essa condição de erro pode ocorrer se um corpo de solicitação XML contiver instruções XML bem formadas (ou seja, sintaticamente corretas), mas semanticamente erradas. O cliente não deve repetir esta requisição sem modificações.",
   },
   {
     "status": 423,
     "legenda": "Locked",
     "imagem": "status423",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que um recurso está bloqueado, o que significa que não pode ser acessado. Seu corpo de resposta deve conter informações no formato XML do WebDAV.",
+    "adicional": "Nota: A capacidade de bloquear um recurso para evitar conflitos é específica para alguns servidores WebDAV. Os navegadores que acessam páginas da web nunca encontrarão esse código de status; nos casos errôneos em que acontece, eles lidarão com isso como um genérico 400Código de estado.",
   },
   {
     "status": 424,
     "legenda": "Failed Dependency",
     "imagem": "status424",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o método não pôde ser executado no recurso porque a ação solicitada dependia de outra ação e essa ação falhou. Servidores web regulares normalmente não retornam esse código de status, mas alguns protocolos como o WebDAV podem devolvê-lo. Por exemplo, no WebDAV, se um PROPPATCH solicitação foi emitida, e um comando falha, em seguida, automaticamente todos os outros comandos também falharão.",
   },
   {
     "status": 425,
     "legenda": "Too Early",
     "imagem": "status425",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor não quer correr o risco de processar uma requisição que pode ser repetida, o que cria um potencial risco para ataques de repetição.",
+    "adicional": "Esta é uma tecnologia experimental. Verifique a tabela de compatibilidade entre navegadores cuidadosamente antes de usar essa funcionalidade em produção.",
   },
   {
     "status": 426,
     "legenda": "Upgrade Required",
     "imagem": "status426",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor recusa o processamento da requisição usando o protocolo atual mas poderá ser processado caso o cliente atualize para um protocolo diferente. O servidor envia uma header Upgrade com esta resposta para indicar qual o protocolo necessário.",
+    "adicional": "",
   },
   {
     "status": 428,
     "legenda": "Precondition Required",
     "imagem": "status428",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor precisa que a requisição seja condicional. Normalmente, isto significa que um cabeçalho pré-requisito, como o If-Match, está faltando. Quando o cabeçalho pré-requisito não é o mesmo esperado pelo servidor, a resposta deve ser 412 Precondition Failed.",
   },
   {
     "status": 429,
     "legenda": "Too Many Requests",
     "imagem": "status429",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o usuário enviou muitos pedidos em um determinado período de tempo. Um header Retry-After pode ser incluído na resposta indicando quanto tempo o usuário deve esperar antes de fazer um novo pedido.",
+    "adicional": "Observe que esta especificação não define como o servidor de origem identifica o usuário, nem como conta as solicitações. Por exemplo, um servidor de origem que está limitando as taxas de solicitação pode fazer isso com base nas contagens de solicitações por recurso, em todo o servidor ou mesmo entre um conjunto de servidores. Da mesma forma, ele pode identificar o usuário por suas credenciais de autenticação ou um cookie com estado. Respostas com o código de status 429 não devem ser armazenadas por um cache.",
   },
   {
     "status": 431,
     "legenda": "Request Header Fields Too Large",
     "imagem": "status431",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o servidor se recusou a processar a requisição por que os cabeçalhos HTTP da mesma são muito grandes. A requisição pode ser resubmetida depois de o tamanho dos cabeçalhos serem reduzidos. Servidores vão produzir esse status frequentemente se o cabeçalho Referer URL é muito longo ou existem muitos Cookies sendo enviados na requisição",
+    "adicional": "Ele pode ser usado quando o conjunto de campos de cabeçalho de solicitação no total é muito grande e quando um único campo de cabeçalho está em falta. No último caso, a representação da resposta deve especificar qual campo de cabeçalho é muito grande. ",
   },
   {
     "status": 451,
     "legenda": "Unavailable For Legal Reasons",
     "imagem": "status451",
-    "descricao": "Em breve será adicionada a descrição.",
-    "adicional": ""
+    "descricao": "Indica que o recurso solicitado pelo usuário não está disponível por motivos legais, como em uma página web para a qual foi emitida uma ação legal. As respostas que usam este código de status devem incluir uma explicação, no corpo da resposta, dos detalhes da demanda legal: a parte que a faz, a legislação ou regulamento aplicável e a que classes de pessoa e recursos se aplica.",
+    "adicional": "A utilização do código de status 451 não implica na existência ou inexistência do recurso nomeado na solicitação. Ou seja, é possível que, caso as demandas judiciais sejam retiradas, a solicitação do recurso ainda não seja bem-sucedida. Observe que, em muitos casos, os clientes ainda podem acessar o recurso negado usando contramedidas técnicas, como uma VPN ou a rede Tor.",
   },
   {
     "status": 500,
