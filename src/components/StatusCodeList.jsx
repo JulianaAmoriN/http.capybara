@@ -1,4 +1,6 @@
-import { Box, Grid2, Typography, Card, CardContent, CardMedia } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Grid2, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import StatusDetailPopup from './StatusDetailPopup'; // Importando o pop-up
 
 const introStyles = {
   gridItem: {
@@ -38,6 +40,16 @@ const introStyles = {
 };
 
 function StatusCodeList({ data }) {
+  const [selectedStatus, setSelectedStatus] = useState(null); // Estado para controlar o status selecionado
+
+  const handleCardClick = (statusCode) => {
+    setSelectedStatus(statusCode); // Altera o estado para abrir o pop-up com os dados do status
+  };
+
+  const closePopup = () => {
+    setSelectedStatus(null); // Fecha o pop-up ao setar o estado como null
+  };
+
   return (
     <Box sx={{ marginTop: '20px', padding: '20px', borderRadius: '8px' }}>
       <Grid2 container spacing={3} justifyContent="center">
@@ -45,19 +57,15 @@ function StatusCodeList({ data }) {
           const imagePath = require(`../fakeDB/imagens/${statusCode.imagem}.webp`);
 
           return (
-            <Grid2 xs={12} sm={6} md={4} sx={introStyles.gridItem} key={statusCode.status}>
-              <Card sx={introStyles.card}>
+            <Grid2 item xs={12} sm={6} md={4} sx={introStyles.gridItem} key={statusCode.status}>
+              <Card sx={introStyles.card} onClick={() => handleCardClick(statusCode)}>
                 <CardMedia
                   component="img"
                   src={imagePath}
                   alt={statusCode.imagem}
-                  sx={{
-                    ...introStyles.cardMedia,
-                  }}
+                  sx={introStyles.cardMedia}
                 />
-                <CardContent
-                  sx={introStyles.cardText}
-                >
+                <CardContent sx={introStyles.cardText}>
                   <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                     HTTP {statusCode.status}
                   </Typography>
@@ -68,6 +76,9 @@ function StatusCodeList({ data }) {
           );
         })}
       </Grid2>
+
+      {/* Exibe o pop-up se um status for selecionado */}
+      {selectedStatus && <StatusDetailPopup statusCode={selectedStatus} onClose={closePopup} />}
     </Box>
   );
 }
