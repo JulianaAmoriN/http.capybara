@@ -36,6 +36,12 @@ const popupStyles = {
     height: 'auto',
     borderRadius: '8px',
     marginTop: '20px',
+  },
+  sources: {
+    marginTop: '10px',
+    fontStyle: 'italic',
+    fontSize: '8px',
+    textAlign: 'center',
   }
 };
 
@@ -66,7 +72,7 @@ const StatusDetailPopup = ({ statusCode, onClose }) => {
           </Typography>
           {statusCode.adicional && (
             <Typography variant="body2" sx={{ marginTop: '20px' }}>
-                {statusCode.adicional}
+              {statusCode.adicional}
             </Typography>
           )}
         </CardContent>
@@ -75,6 +81,17 @@ const StatusDetailPopup = ({ statusCode, onClose }) => {
           alt={statusCode.imagem}
           style={popupStyles.image}
         />
+        <CardContent sx={popupStyles.sources}>
+          <Typography variant="body2">
+            Fonte:
+            <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status" target="_blank" rel="noopener noreferrer">
+                MDN Web Docs
+            </a> e
+            <a href="https://www.httpstatus.com.br/" target="_blank" rel="noopener noreferrer">
+                HTTPStatus.com.br
+            </a>
+          </Typography>
+        </CardContent>
       </Card>
     </Box>
   );
