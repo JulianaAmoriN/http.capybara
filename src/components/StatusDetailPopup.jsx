@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardContent, Typography, IconButton } from '@mui/material';
+import XIcon from '@mui/icons-material/X';
 
 const popupStyles = {
   overlay: {
@@ -21,9 +22,21 @@ const popupStyles = {
     borderRadius: '8px',
     padding: '20px',
     zIndex: 1100,
-    maxHeight: '80vh',   // Limita a altura máxima do Card
-    overflowY: 'auto',   // Aplica o scroll no Card inteiro
+    maxHeight: '80vh',
+    overflowY: 'auto',
   },
+  closeButton: {
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    color: 'black',
+  },
+  image: {
+    width: '100%',
+    height: 'auto',
+    borderRadius: '8px',
+    marginTop: '20px',
+  }
 };
 
 const StatusDetailPopup = ({ statusCode, onClose }) => {
@@ -34,11 +47,13 @@ const StatusDetailPopup = ({ statusCode, onClose }) => {
   return (
     <Box sx={popupStyles.overlay} onClick={onClose}>
       <Card sx={popupStyles.card} onClick={(e) => e.stopPropagation()}>
-        <img 
-          src={imagePath} 
-          alt={statusCode.imagem} 
-          style={{ width: '100%', height: 'auto', borderRadius: '8px' }} 
-        />
+        <IconButton 
+          sx={popupStyles.closeButton} 
+          onClick={onClose}
+          aria-label="close"
+        >
+          <XIcon />
+        </IconButton>
         <CardContent>
           <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
             Status {statusCode.status}
@@ -55,6 +70,11 @@ const StatusDetailPopup = ({ statusCode, onClose }) => {
             </Typography>
           )}
         </CardContent>
+        <img 
+          src={imagePath}
+          alt={statusCode.imagem}
+          style={popupStyles.image}
+        />
       </Card>
     </Box>
   );
